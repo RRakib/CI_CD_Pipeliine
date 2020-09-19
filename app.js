@@ -8,8 +8,11 @@ const port = 5000 || PROCESS.ENV
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/', (req, res) => {
+  res.send('Hello')
+})
 
 app.listen(port, () => {
   console.log(`Listening to post ${port}`)
